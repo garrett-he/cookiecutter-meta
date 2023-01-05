@@ -13,6 +13,7 @@ python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
 chance = "^0.110"
+pre-commit = "^4.0.1"
 pylint = "^3.3.1"
 pytest = "^8.3.3"
 pytest-cookies = "^0.7.0"
