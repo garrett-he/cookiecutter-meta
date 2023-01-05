@@ -59,6 +59,16 @@ files = [
 ]
 
 [[package]]
+name = "chance"
+version = "0.110"
+description = "Minimalist generator of random strings, numbers, etc."
+optional = false
+python-versions = "*"
+files = [
+    {file = "chance-0.110.tar.gz", hash = "sha256:b21944a73a7eacd3a4dfd5ba6f396de596ff9aaed0826a04d4d3bd9e9bafae63"},
+]
+
+[[package]]
 name = "chardet"
 version = "5.2.0"
 description = "Universal encoding detector for Python 3"
@@ -771,4 +781,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "c15fa0e7750987bb38877cf47f67bd5e6a0406076d182d01148c0a1a11a0dd82"
+content-hash = "a0a3ae622809e7cc00d428df6f931c9671cc7a7bc6b332f211dc3c600c3b5eb3"
