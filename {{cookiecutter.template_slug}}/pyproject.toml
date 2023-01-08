@@ -11,6 +11,13 @@ repository = "https://github.com/{{ cookiecutter.github_path }}.git"
 [tool.poetry.dependencies]
 python = "^3.10"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-cookies = "^0.7.0"
+
+[tool.pytest.ini_options]
+addopts = "--ignore='{% raw %}{{cookiecutter.project_slug}}{% endraw %}'"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
