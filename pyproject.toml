@@ -18,6 +18,9 @@ pylint = "^3.3.1"
 pytest = "^8.3.3"
 pytest-cookies = "^0.7.0"
 
+[tool.pytest.ini_options]
+addopts = "--ignore='{{cookiecutter.template_slug}}'"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
