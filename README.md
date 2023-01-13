@@ -1,5 +1,8 @@
 # cookiecutter-meta
 
+![License](https://img.shields.io/github/license/garrett-he/cookiecutter-meta)
+![GitHub Workflow](https://img.shields.io/github/actions/workflow/status/garrett-he/cookiecutter-meta/ubuntu-jammy.yml)
+
 A meta template for [Cookiecutter][1] allows you to quickly generate concrete
 templates.
 
