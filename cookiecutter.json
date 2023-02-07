@@ -1,0 +1,7 @@
+{
+    "template_name": "Template Name",
+    "template_slug": "{{ cookiecutter.template_name | slugify }}",
+    "template_description": "A Cookiecutter template.",
+    "author_name": "Your Name",
+    "author_email": "your.name@email.com"
+}
