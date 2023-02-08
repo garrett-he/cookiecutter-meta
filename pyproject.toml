@@ -11,6 +11,10 @@ repository = "https://github.com/garrett-he/cookiecutter-meta.git"
 [tool.poetry.dependencies]
 python = "^3.7"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-cookies = "^0.7.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
