@@ -15,5 +15,10 @@
     ],
     "license_fullname": "{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>",
     "license_year": "{% now 'utc', '%Y' %}",
-    "github_path": "{{ cookiecutter.author_name.lower() | slugify }}/{{ cookiecutter.template_slug }}"
+    "github_path": "{{ cookiecutter.author_name.lower() | slugify }}/{{ cookiecutter.template_slug }}",
+    "_copy_without_render": [
+        "hooks/post_gen_project.py",
+        "tests/test_bake_template.py",
+        "{%raw%}{{cookiecutter.project_slug}}{%endraw%}/*"
+    ]
 }
