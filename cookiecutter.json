@@ -1,0 +1,4 @@
+{
+    "template_name": "Template Name",
+    "template_slug": "{{ cookiecutter.template_name | slugify }}"
+}
