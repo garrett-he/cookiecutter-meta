@@ -18,11 +18,13 @@ def generate_context() -> dict:
     return {
         'template_name': f'{chance.word().capitalize()} {chance.word().capitalize()}',
         'template_slug': f'{chance.word().lower()}-{chance.word().lower()}',
+        'template_description': chance.sentence(),
         'author_name': chance.name(),
         'author_email': chance.email(),
         'license_id': chance.pickone([key for key in license_stubs.keys()]),
         'license_fullname': f'{chance.name()} <{chance.email()}>',
         'license_year': str(random.randint(2000, 2023)),
+        'github_path': f'{chance.word()}/{chance.word()}-{chance.word()}'.lower()
     }
 
 
@@ -33,7 +35,7 @@ def test_create_template(cookies: Cookies):
     assert result.project_path.joinpath('.editorconfig').exists()
 
 
-def test_bake_license(cookies: Cookies):
+def test_bake_license_and_readme(cookies: Cookies):
     for license_id, license_stub in license_stubs.items():
         context = generate_context()
         context['license_id'] = license_id
@@ -51,6 +53,15 @@ def test_bake_license(cookies: Cookies):
             assert context['license_fullname'] in license_text
             assert context['license_year'] in license_text
 
+        readme = result.project_path.joinpath('README.md').read_text()
+        assert context['template_name'] in readme
+        assert context['template_description'] in readme
+        assert f'cookiecutter gh:{context["github_path"]}' in readme
+
+        assert f'Copyright (C) {context["license_year"]} {context["license_fullname"]}' in readme
+        assert license_stub in readme
+        assert 'see [LICENSE](./LICENSE).' in readme
+
     context = generate_context()
     context['license_id'] = 'Unlicense'
     result = cookies.bake(extra_context=context)
@@ -62,3 +73,7 @@ def test_bake_license(cookies: Cookies):
     assert 'This is free and unencumbered software released into the public domain' in unlicense_text
     assert context['license_fullname'] not in unlicense_text
     assert context['license_year'] not in unlicense_text
+
+    readme = result.project_path.joinpath('README.md').read_text(encoding='utf-8')
+    assert 'This is free and unencumbered software released into the public domain' in readme
+    assert 'see [UNLICENSE](./UNLICENSE).' in readme
