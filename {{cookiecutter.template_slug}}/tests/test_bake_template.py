@@ -52,6 +52,15 @@ def test_bake_license(cookies: Cookies):
             assert context['license_fullname'] in license_text
             assert context['license_year'] in license_text
 
+        readme = result.project_path.joinpath('README.md').read_text(encoding='utf-8')
+
+        assert context['project_name'] in readme
+        assert context['project_description'] in readme
+
+        assert f'Copyright (C) {context["license_year"]} {context["license_fullname"]}' in readme
+        assert license_stubs[context['license_id']] in readme
+        assert 'see [LICENSE](./LICENSE)' in readme
+
     context = generate_context()
     context['license_id'] = 'Unlicense'
     result = cookies.bake(extra_context=context)
@@ -63,3 +72,7 @@ def test_bake_license(cookies: Cookies):
     assert 'This is free and unencumbered software released into the public domain' in unlicense_text
     assert context['license_fullname'] not in unlicense_text
     assert context['license_year'] not in unlicense_text
+
+    readme = result.project_path.joinpath('README.md').read_text(encoding='utf-8')
+    assert 'This is free and unencumbered software released into the public domain' in readme
+    assert 'see [UNLICENSE](./UNLICENSE)' in readme
