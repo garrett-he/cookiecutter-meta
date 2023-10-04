@@ -15,6 +15,7 @@ python = "^3.8"
 chance = "^0.110"
 pytest = "^8.1.1"
 pytest-cookies = "^0.7.0"
+toml = "^0.10.2"
 
 [tool.pytest.ini_options]
 addopts = "--ignore='{{cookiecutter.template_slug}}'"
