@@ -3,5 +3,16 @@
     "template_slug": "{{ cookiecutter.template_name | slugify }}",
     "template_description": "A Cookiecutter template.",
     "author_name": "Your Name",
-    "author_email": "your.name@email.com"
+    "author_email": "your.name@email.com",
+    "license_id": [
+        "Apache-2.0",
+        "BSD-3-Clause",
+        "GPL-3.0",
+        "LGPL-3.0",
+        "MIT",
+        "MPL-2.0",
+        "Unlicense"
+    ],
+    "license_fullname": "{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>",
+    "license_year": "{% now 'utc', '%Y' %}"
 }
