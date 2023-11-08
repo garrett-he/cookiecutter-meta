@@ -14,5 +14,6 @@
         "Unlicense"
     ],
     "license_fullname": "{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>",
-    "license_year": "{% now 'utc', '%Y' %}"
+    "license_year": "{% now 'utc', '%Y' %}",
+    "github_path": "{{ cookiecutter.author_name.lower() | slugify }}/{{ cookiecutter.template_slug }}"
 }
