@@ -9,8 +9,10 @@ homepage = "https://github.com/{{ cookiecutter.github_path }}"
 repository = "https://github.com/{{ cookiecutter.github_path }}.git"
 
 [tool.poetry.dependencies]
-chance = "^0.110"
 python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+chance = "^0.110"
 pytest = "^8.3.3"
 pytest-cookies = "^0.7.0"
 
