@@ -7,6 +7,7 @@ help: ## Show help information
 .PHONY: deps
 deps: ## Install dependencies and Git hooks
 	poetry install
+	poetry run pre-commit install
 
 .PHONY: test
 test: ## Test in current Python version
